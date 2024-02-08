@@ -1,13 +1,11 @@
 body{
    margin: 0px;
 }
-   .grid-container {
+.grid-container {
       height: 100vmax;
       display: grid;
       grid-template-columns: 450px auto;
-      grid-template-rows: 80px 1050px;
-      /*gap: 1px;*/
-      
+      grid-template-rows: 80px 1050px;     
  }
 
 .grid-item {
