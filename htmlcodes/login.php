@@ -1,17 +1,31 @@
 <?php 
+$login = false;
+$showerror = false;
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 include("connections.php");
 include("functions.php");
 
-session_start();
+$username = $_POST["username"];
+$password = $_POST["password"];
 
-check_login($con);
+$sql = "SELECT * FROM user_t WHERE username = '$username' AND password = '$password'";
+$id = "SELECT userid from user_t WHERE username = '$username';";
+
+$getid = mysqli_query($con, $id);
 
 
-
-
-
-
+$result = mysqli_query($con, $sql);
+$num = mysqli_num_rows($result);
+if($num==1){
+       $login = true;
+       header("location: home.php");
+       $_SESSION['userid'] = $getid;
+}
+else{
+    $showerror = "invalid credentials";
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,23 +44,33 @@ check_login($con);
             </div>
             <div class="grid-item item2">
                 <div class="menu">
-                    <a href="home.html" class="mbuton home">Home</a>
+                    <a href="home.php" class="mbuton home">Home</a>
                     <a href="sale.html" class="mbuton agent">Agents</a>
                 </div>
             </div>
             <div class="grid-item item3">
                 <div class="loginrecd">
-                    <form action="send.php" class="login-signup" method="get">
+                    <form  class="login-signup" method="post" style="margin-bottom: 0";>
                         <legend style="text-decoration: underline;">LOGIN</legend><br>
                         <lable for="username" class="un">USERNAME</lable><br><br>
-                        <input class="uni" type="text"  name="username"><br><br>
+                        <input class="uni" type="text"  name="username" required><br><br>
                         <lable for="password" class="un">PASSWORD</lable><br><br>
-                        <input class="uni" type="password" name="username" min="8" ">
+                        <input class="uni" type="password" name="password" min="8" required>
                         <br><br>
                         <input type="submit" value="SUBMIT"><br>
-                        <a href="signup.html" class="signup">No account? Sign up</a>
+                        <a href="signup.php" class="signup">No account? Sign up</a>
                     </form>
-                </div> 
+                    <?php
+                    if($showerror){
+                 echo "           <div class='noti' style='background-color: rgb(255, 179, 179)'>
+                                  <p><strong>$showerror</strong></p>
+                                   </div>
+                                   ";
+
+                    
+                    }
+                ?>
+                </div>
             </div>
             <div class="grid-item item5">
                 <div class="c1"><p class="cd">Contact<br>Details.</p></div>

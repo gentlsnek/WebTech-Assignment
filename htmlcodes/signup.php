@@ -1,9 +1,36 @@
+<?php 
+
+$alert = false;
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+include("connections.php");
+include("functions.php");
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+$cpassword = $_POST["cpassword"];
+$email = $_POST["email"];
+$phone = $_POST["phone"];
+$exists = false;
+if(($password == $cpassword) && $exists== false){
+    $sql = "INSERT INTO user_t (username, password, email, phone) VALUES ('$username','$password',
+    '$email','$phone');";
+
+    $result = mysqli_query($con, $sql);
+
+    if($result){
+      $alert = true;
+      header("location: login.php");
+}
+
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>SignUp</title>
     <link rel="stylesheet" href="csscodes\signupstyle.css">
 </head>
 <body>
@@ -14,24 +41,26 @@
             </div>
             <div class="grid-item item2">
                 <div class="menu">
-                    <a href="home.html" class="mbuton home">Home</a>
+                    <a href="home.php" class="mbuton home">Home</a>
                     <a href="sale.html" class="mbuton agent">Agents</a>
                 </div>
             </div>
             <div class="grid-item item3">
-                <div class="loginrecd"  style="height: 730px;">
-                    <form class="login-signup" method="get">
+                <div class="loginrecd" style="height: 1000px;">
+                    <form class="login-signup" method="POST">
                         <legend style="text-decoration: underline;">SIGN-UP</legend><br>
                         <lable for="username" class="un">USERNAME</lable><br><br>
-                        <input class="uni" type="text"  name="username"><br><br>
+                        <input class="uni" type="text"  name="username" min="4" required><br><br>
                         <lable for="password" class="un">PASSWORD</lable><br><br>
-                        <input class="uni" type="password" name="username" min="8" ">
-                        <br><br>
-                        <lable for="password" class="un">CONFIRM-PASSWORD</lable><br><br>
-                        <input class="uni" type="password" name="username" min="8" ">
-                        <br><br>
-                        <input type="submit" value="SUBMIT"><br>
-                        <a href="login.html" class="signup">Already have an account? Sign in</a>
+                        <input class="uni" type="password" name="password" min="8" required><br><br>
+                        <lable for="cpassword" class="un">CONFIRM-PASSWORD</lable><br><br>
+                        <input class="uni" type="password" name="cpassword" min="8" required><br><br>
+                        <lable for="email" class="un">EMAIL</lable><br><br>
+                        <input name="email" type="email" class="uni" required><br><br>
+                        <lable for="phone" class="un">PHONE</lable><br><br>
+                        <input name="phone" type="phone" class="uni" required min="10"><br><br><br>
+                        <input type="submit" value="SUBMIT" style="font-size: 32px;"><br><br>
+                        <a href="login.php" class="signup">Already have an account? Sign in</a>
                     </form>
                 </div> 
             </div>
@@ -44,5 +73,15 @@
                 <div class="c4"><p class="cp"> Phone: +91 7055403961 <br> Email: TigerSecurity@hotmail.com </p></div>
            </div>
           </div> 
+          <?php
+          if($alert){
+              echo "<script> alert(`Signup Succesful redirecting`)</script>";
+          
+                    } 
+                  //  else{
+                    //    echo "<script> alert(`Signup Unsuccesfull`)</script>";
+                  //  }
+             ?>
+
 </body>
 </html>
