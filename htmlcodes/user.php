@@ -1,4 +1,8 @@
 <?php
+session_start();
+include('connections.php');
+$userid = $_SESSION['userid'];
+$id = session_id();
 
 ?>
 
@@ -18,25 +22,29 @@
         <div class="grid-item item2">
             <div class="menu">
                 <!-- a href="home.html" class="mbuton home">Home</a -->
-                <a href="home.html" class="mbuton agent">Home</a>
-                <a href="agent.html" class="mbuton login">Agent</a>
+                <a href="home.php" class="mbuton agent">Home</a>
+                <a href="sale.php" class="mbuton login">Agent</a>
                 <!--a href="photos.html" class="mbuton login">Photos</a-->   
             </div>
         </div>
         <div class="grid-item item3">
-                 <div class="pfp">1
-                 <img src="images/userpfp.png" alt="dummypfp" position="left">
+                 <div class="pfp">
+                 <img src="images/userpfp.jpg" alt="dummypfp" position="left">
                  </div>
                  <div class="userinfo">
                  <form>
-                    <lable for="user_id">User ID:
-                    </lable><br>
-                    <lable for="user_name">User Name:
-                    </lable><br>
-                    <lable for="user_email">User Email</lable><br>
+                    <?php  
+                    echo "<lable for='user_name'>User Name: $userid </lable><br>";
+                    echo "<lable for='user_session'>Session ID: $id </lable><br>";
+                    ?>
+                 </form>
+                 <form action="logout.php">
+                    <input class="lobtn" type="submit" value="logout">
                  </form>
                  </div>
-                 <div class="userhistory">3</div>
+                 <div class="userhistory">
+                   
+                 </div>
           </div>
         <div class="grid-item item5">
             <div class="c1"><p class="cd">Contact<br>Details.</p></div>

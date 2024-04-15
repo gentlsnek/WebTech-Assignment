@@ -3,12 +3,13 @@
 
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass = "";
+$dbpass = "admin";
 $dbname = "tigersecurity_db";
+$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-if(!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+if(!$con){
     
-    die("failed to connect");
+    echo("failed to connect");
 }
 
 ?>

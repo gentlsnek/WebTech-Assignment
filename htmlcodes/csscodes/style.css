@@ -40,6 +40,7 @@ body{
     }
    
     .item5{
+      height: 270px;
       background-color: rgb(58, 58, 58);
       grid-row: 3;
       grid-column: 1/4;
@@ -117,11 +118,13 @@ body{
   grid-row: 2;
 }
 .gphoto{
+  height: 500px;
   margin-left:150px;
   height: 370px;
   width: 600px;
 }
 .gtext{
+  height: 500px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 40px;
   margin-right: 230px;
@@ -202,7 +205,7 @@ body{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
   font-size: 134px;
-  animation: keyani 500ms linear infinite;
+  animation: keyani 2s linear infinite;
 }
 
 @keyframes keyani {

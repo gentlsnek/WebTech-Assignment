@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +14,23 @@
 <body>
     <div class="grid-container">
         <div class="grid-item item1">
-            <a href="home.html"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
+            <a href="home.php"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
         </div>
         <div class="grid-item item2">
             <div class="menu">
                 <a href="home.php" class="mbuton home">Home</a>
                 <!--a href="sale.html" class="mbuton agent">Agents</a-->
-                <a href="login.php" class="mbuton login">Login</a>
+                <?php
+
+               
+if(!array_key_exists('userid', $_SESSION)){
+echo " <a href='login.php' class='mbuton login'>Login</a>";
+}
+else{
+    $checkuser = $_SESSION['userid'];
+    echo "<a href='user.php' class='mbuton login'> $checkuser </a>";
+}
+?>
             </div>
         </div>
         <div class="grid-item item3">

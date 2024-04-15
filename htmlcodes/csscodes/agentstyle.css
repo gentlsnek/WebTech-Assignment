@@ -1,3 +1,4 @@
+
 body{
  
     margin: 0px;
@@ -39,15 +40,18 @@ body{
         grid-row: 2;
         grid-column: 1/4;
         grid-template-columns:  900px auto;
+        grid-template-rows: 600px auto;
         
       }
      
       .item5{
+        height: 270px;
         background-color: rgb(58, 58, 58);
         grid-row: 3;
         grid-column: 1/4;
         display: grid;
         grid-template-columns: repeat(5, auto);
+        height: 269px;
       }
   .logo{
         padding-top: 0.5rem;
@@ -82,12 +86,11 @@ body{
     box-shadow:0 0 6px rgb(255, 255, 255);
   }
   
-.backbutton{
-    height: 40px;
-    width: 40px;
-}
 
-  .apicture{
+  .apicture img{
+   
+    height: 450px;
+    width: 500px;
     grid-column: 1;
     display: block;
     margin-top: 140px;
@@ -129,12 +132,71 @@ body{
     width: 150px;
     margin: 20px;
     font-size: 40px;
+    transition: all 0.2s ease-in-out;
   }
 
-  .reviews{
+  .abook:hover{
+    box-shadow: 0 0 8px rgb(255, 255, 255);
+  }
+
+  .book{
+     border-radius: 12px;
+    color: white;
+    display: flex;
+    justify-self: center;
+    grid-row: 2;
     grid-column: 1/3;
+    width: 700px;
+    height: 400px;
+    background-color: rgb(66, 66, 66);
   }
   
+  .inputshit{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+ [type = "date"]{
+     height: 40px;
+     font-size: 20px;
+     font-family: monospace;
+     font-weight: bold;
+  }
+
+  [type = "submit"]{
+    color: #000000;
+    background-color: white;
+    border-radius: 12px;
+    border: 0;
+    font-size: 30px;
+    height: 50px;
+    width: 120px;
+    transition: all 0.2s ease-in-out
+  }
+
+  [type = "submit"]:hover{
+       box-shadow: 0 0 16px white;
+  }
+  
+  #t1, #t2{
+    border: 0px;
+    font-weight: bold;
+    font-family: monospace;
+    text-align: center;
+    font-size: 20px;
+    height: 40px;
+    width:150px;   
+   }
+
+
+  textarea{
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 20px;
+    border: 0px;
+    resize: none;
+  }
   .cd{
     color: rgb(233,233,233);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -175,35 +237,6 @@ body{
     text-decoration: none;
   }
   
-  .final{
-    text-decoration: underline;
-    padding-top: 80px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
-    font-size: 134px;
-    animation: keyani 500ms linear infinite;
-  }
-  
-  @keyframes keyani {
-  
-    0%{
-      color: red;
-    }
-  
-    25%{
-      color: yellow;
-    }
-  
-    50%{
-      color: green;
-    }
-  
-    75%{
-      color: blue;
-    }
-  
-    100%{
-      color: purple;
-    }
-    
-  }
+.hidden{
+  display: none;
+}
