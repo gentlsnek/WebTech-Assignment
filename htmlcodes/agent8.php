@@ -81,7 +81,7 @@ else{
                 
             </div>
             <div class="book hidden">
-                <form class="inputshit" method="get">
+                <form class="inputshit" method="post">
                 <lable for="date1">Date : From</lable>
                 <input type="date" name="date1">
                 <label for="date2">Till</label>
