@@ -1,3 +1,4 @@
+
 body{
   background-repeat: no-repeat;
   background-position: center;
@@ -9,7 +10,7 @@ body{
 .grid-container {
       
       width: 100%;
-      height: 1190px;
+      height: 1160px;
       display: grid;
       grid-template-columns: 25vmax 75vmax;
       grid-template-rows: 120px 800px 260px;     
@@ -45,6 +46,7 @@ body{
       }
      
       .item5{
+        height: 270px;
         background-color: rgb(58, 58, 58);
         grid-row: 3;
         grid-column: 1/4;
@@ -84,11 +86,24 @@ body{
     box-shadow:0 0 6px rgb(255, 255, 255);
   }
   
+.noti{
+  background-color: rgb(211, 164, 164);
+  height: 40px;
+  width: 400px;
+  margin-left: 149px;
+  border-radius: 7px;
+  font-family: monospace;
+  font-weight: normal;
+  font-size: 29px;
+}
+
+
+
 .loginrecd{
   box-shadow:0 0 12px rgb(55, 55, 55);
   border-radius: 15%;
   width: 700px;
-  height: 550px;
+  height: 600px;
   background-color: rgb(26, 26, 26);
 }
 
@@ -98,7 +113,8 @@ body{
   font-weight: bold;
   color: white;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 45px;
+  margin: 40px;
+  margin-bottom: 0;
 }
   
 .un{
@@ -110,7 +126,7 @@ body{
   font-size: 30px;
   border-radius: 17px;
   height: 2vmax;
-  width: 30vmax;
+  width: 25vmax;
   color: rgb(0, 0, 0);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

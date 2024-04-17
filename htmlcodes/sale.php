@@ -1,79 +1,96 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+    <title>Sale</title>
     <link rel="stylesheet" href="csscodes\salestyle.css">
 </head>
 <body>
     <div class="grid-container">
         <div class="grid-item item1">
-            <a href="home.html"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
+            <a href="home.php"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
         </div>
         <div class="grid-item item2">
             <div class="menu">
-                <a href="home.html" class="mbuton home">Home</a>
+                <a href="home.php" class="mbuton home">Home</a>
                 <!--a href="sale.html" class="mbuton agent">Agents</a-->
-                <a href="login.php" class="mbuton login">Login</a>
+                <?php
+
+               
+if(!array_key_exists('userid', $_SESSION)){
+echo " <a href='login.php' class='mbuton login'>Login</a>";
+}
+else{
+    $checkuser = $_SESSION['userid'];
+    echo "<a href='user.php' class='mbuton login'> $checkuser </a>";
+}
+?>
             </div>
         </div>
         <div class="grid-item item3">
-       <a href="agent1.html"><div class=sale><img class="agentimg" src="images\bruhshiz.jpg">
-        <p>Name: GentleSnek</p>
+       <a href="agent1.PHP"><div class=sale><img class="agentimg" src="images\agent1.jpg">
+        <p>Name: Terminator</p>
         <p>Availability: available</p>
         </div>
         </a>
-        <a href="agent2.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent2</p>
+        <a href="agent2.php"><div class=sale><img class="agentimg" src="images/agent2.jpg">
+            <p>Name: Rambo</p>
             <p>Availability: available</p>
             </div>
             </a>
-        <a href="agent3.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-                <p>Name: Agent3</p>
+        <a href="agent3.php"><div class=sale><img class="agentimg" src="images/agent3.jpg">
+                <p>Name: Chris</p>
                 <p>Availability: available</p>
                 </div>
         </a>
-        <a href="agent4.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent4</p>
+        <a href="agent4.php"><div class=sale><img class="agentimg" src="images/agent4.jpg">
+            <p>Name: Chris </p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent5.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent5</p>
+        <a href="agent5.php"><div class=sale><img class="agentimg" src="images/agent5.jpg">
+            <p>Name: Conor </p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent6.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent6</p>
+        <a href="agent6.php"><div class="sale"><img class="agentimg" src="images/agent6.jpg">
+            <p>Name: Khabib</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent7.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent7</p>
+        <a href="agent7.php"><div class=sale><img class="agentimg" src="images/agent7.jpg">
+            <p>Name: Shaq</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent8.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent8</p>
+        <a href="agent8.php"><div class=sale><img class="agentimg" src="images/agent8.jpg">
+            <p>Name: John</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent9.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent9</p>
+        <a href="agent9.php"><div class=sale><img class="agentimg" src="images/agent9.jpg">
+            <p>Name: James</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent10.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent10</p>
+        <a href="agent10.php"><div class=sale><img class="agentimg" src="images/agent10.jpg">
+            <p>Name: Agent 47</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent11.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent11</p>
+        <a href="agent11.php"><div class=sale><img class="agentimg" src="images/agent11.jpg">
+            <p>Name: Kman</p>
             <p>Availability: available</p>
             </div>
         </a>
-        <a href="agent12.html"><div class=sale><img class="agentimg" src="images/dummyimage.png">
-            <p>Name: Agent12</p>
+        <a href="agent12.php"><div class=sale><img class="agentimg" src="images/agent12.jpg">
+            <p>Name: Jeffry</p>
             <p>Availability: available</p>
             </div>
         </a>

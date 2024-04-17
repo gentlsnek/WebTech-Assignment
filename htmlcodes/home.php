@@ -1,19 +1,35 @@
+<?php 
+session_start();
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="csscodes\style.css">
 </head>
 <body>
     <div class="grid-container">
         <div class="grid-item item1">
+            
              <img alt="logo" src="images\logonobg2.png" class="logo">
         </div>
         <div class="grid-item item2">
             <div class="menu">
                 <!-- a href="home.html" class="mbuton home">Home</a -->
-                <a href="sale.html" class="mbuton agent">Agents</a>
-                <a href="login.php" class="mbuton login">Login</a>
+                <a href="sale.php" class="mbuton agent">Agents</a>
+                <?php
+
+               
+                if(!array_key_exists('userid', $_SESSION)){
+               echo " <a href='login.php' class='mbuton login'>Login</a>";
+                }
+                else{
+                    $checkuser = $_SESSION['userid'];
+                    echo "<a href='user.php' class='mbuton login'> $checkuser </a>";
+                }
+                ?>
                 <!--a href="photos.html" class="mbuton login">Photos</a-->   
             </div>
         </div>
@@ -22,7 +38,7 @@
               <h1 class="heading">Welcome to Tiger Security</h1>
             </div>
             <div class="content2">
-                <img alt="group photo" class="gphoto" src="images/dummyimage.png" align="left">
+                <img alt="group photo" class="gphoto" src="images/groupimage1.jpg" align="left">
                 <p class="gtext">Feeling a heightened sense of security is a right, not a privilege. 
                     Whether you're a public figure, CEO, or simply someone navigating an unpredictable world, knowing you have a
                     discreet and qualified bodyguard by your side brings unparalleled peace of mind.
@@ -37,7 +53,7 @@
                     Don't settle for generic security solutions. Tiger Security empowers you to find the perfect bodyguard who seamlessly integrates into your life,
                      ensuring your safety without compromising your privacy.
                 </p>
-                <img alt="group photo" class="gphoto2" src="images/dummyimage.png" align="right">
+                <img alt="group photo" class="gphoto2" src="images/groupimage2.jpg" align="right">
                
                 <br>
             </div>
