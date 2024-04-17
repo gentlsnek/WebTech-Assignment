@@ -26,7 +26,6 @@ if($result){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,23 +41,13 @@ and schedule and price to take with 2 buttons that will be enquire or request-->
 <body>
     <div class="grid-container">
         <div class="grid-item item1">
-            <a href="home.php"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
+            <a href="home.html"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
         </div>
         <div class="grid-item item2">
             <div class="menu">
                 <a href="home.php" class="mbuton home">Home</a>
-                <a href="sale.php" class="mbuton agent">Agents</a>
-                <?php
-
-               
-if(!array_key_exists('userid', $_SESSION)){
-echo " <a href='login.php' class='mbuton login'>Login</a>";
-}
-else{
-    $checkuser = $_SESSION['userid'];
-    echo "<a href='user.php' class='mbuton login'> $checkuser </a>";
-}
-?>
+                <a href="sale.html" class="mbuton agent">Agents</a>
+                <a href="login.php" class="mbuton login">Login</a>
             </div>
         </div>
         <div class="grid-item item3">
@@ -74,7 +63,7 @@ else{
                 
             </div>
             <div class="book hidden">
-                <form class="inputshit" method="POST">
+                <form class="inputshit" method="get">
                 <lable for="date1">Date : From</lable>
                 <input type="date" name="date1">
                 <label for="date2">Till</label>
