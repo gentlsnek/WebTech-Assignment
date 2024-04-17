@@ -43,7 +43,17 @@ $id = session_id();
                  </form>
                  </div>
                  <div class="userhistory">
-                   
+                   <table class="historytable">
+                    <tr>
+                        <th>Book id</th>
+                        <th>Agent Name</th>
+                        <th>Date From</th>
+                        <th>Date Till</th>
+                        <th>Time From</th>
+                        <th>Time Till</th>
+                        <th>Address</th>
+                    </tr>
+                   </table>
                  </div>
           </div>
         <div class="grid-item item5">
