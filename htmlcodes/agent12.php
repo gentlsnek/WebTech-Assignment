@@ -1,8 +1,6 @@
 <?php
 session_start();
-
-
-
+if(array_key_exists('userid', $_SESSION)){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include('connections.php');
     
@@ -18,9 +16,15 @@ $sql = "INSERT INTO `book_t` (`user_name`, `agent_id`, `datef`, `datet`, `timef`
 VALUES ( '$username', '$agentid', '$datef', '$datet', '$timef', '$timet', '$address')";
 
 $result = mysqli_query($con, $sql);
-}
 if($result){
-   header('location: home.php');
+    echo "<script> alert('Booking Succesful')</script>";
+}
+}
+}
+else{
+   echo "<script> alert('Login First'); 
+        window.open('login.php');
+        </script>";
 }
 ?>
 

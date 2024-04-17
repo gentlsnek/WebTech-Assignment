@@ -9,7 +9,6 @@ $showerror = false;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 include("connections.php");
-include("functions.php");
 
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -43,7 +42,7 @@ else{
 <body>
     <div class="grid-container">
             <div class="grid-item item1">
-               <a href="home.html"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
+               <a href="home.php"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
             </div>
             <div class="grid-item item2">
                 <div class="menu">

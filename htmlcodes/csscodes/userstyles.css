@@ -36,7 +36,7 @@ body{
       .item3{
         display: grid;
         grid-template-columns: 700px auto;
-        grid-template-rows: repeat(2,auto);
+        grid-template-rows: 400px auto;
         padding: 20px;
         grid-row: 2;
         grid-column: 1/4;
@@ -103,6 +103,7 @@ body{
   .pfp{
   grid-row: 1;
   grid-column: 1;
+  height: 300px;
   
   }
 
@@ -111,10 +112,11 @@ body{
     border: 4px solid black;
     border-radius: 50%;
     margin-left: 530px;
-    height: 200px;
+    height: 220px;
     width: 220px;
   }
   .userinfo{
+    height: 300px;
     font-family: monospace;
     margin-top: 75px;
     margin-left: 250px;
@@ -132,12 +134,27 @@ body{
     background-color: rgb(54,54,54);
    height: 50px;
    width: 160px;
+   cursor: pointer;
   }
   .userhistory{
     grid-column: 1/3;
     grid-row: 2;
+    width: 100%;
   }
 
+
+
+
+.historytable{
+font-family: monospace;
+text-align: center;
+width: 100%;
+border: 2px solid black;
+}
+
+th{
+width: 200px;
+}
 
 
 

@@ -3,6 +3,11 @@ session_start();
 include('connections.php');
 $userid = $_SESSION['userid'];
 $id = session_id();
+$sql ="SELECT * FROM book_t WHERE user_name = '$userid';";
+
+$result = mysqli_query($con, $sql);
+
+
 
 ?>
 
@@ -34,8 +39,18 @@ $id = session_id();
                  <div class="userinfo">
                  <form>
                     <?php  
-                    echo "<lable for='user_name'>User Name: $userid </lable><br>";
-                    echo "<lable for='user_session'>Session ID: $id </lable><br>";
+                   $usersql = "SELECT * FROM user_t WHERE username = '$userid'";
+                   $fetchuser = mysqli_query($con, $usersql);
+                   $user = mysqli_fetch_assoc($fetchuser);
+                   $username = $user['username'];
+                   $useremail = $user['email'];
+                   $userphone = $user['phone'];
+
+
+                    echo "<lable for='user_name'>User Name:  $username  </lable><br>";
+                    echo "<lable for='user_name'>Email:  $useremail  </lable><br>";
+                    echo "<lable for='user_name'>Phone No:  $userphone  </lable><br>";
+                    echo "<lable for='user_session'>Session ID: $id </lable><br>";                 
                     ?>
                  </form>
                  <form action="logout.php">
@@ -43,7 +58,10 @@ $id = session_id();
                  </form>
                  </div>
                  <div class="userhistory">
-                   <table class="historytable">
+                 <center>
+                        <h1 style="font-family: Calibri">History</h1>
+                    </center>
+                 <table class="historytable" style="border-width: 1px;" border="1">
                     <tr>
                         <th>Book id</th>
                         <th>Agent Name</th>
@@ -53,7 +71,34 @@ $id = session_id();
                         <th>Time Till</th>
                         <th>Address</th>
                     </tr>
-                   </table>
+                    <tr>
+                        <?php
+                        while($row = mysqli_fetch_assoc($result)){
+                            ?>
+                          <td><?php echo $row['book_id'] ?></td>
+                          <td><?php
+                           $agentid = $row['agent_id'];
+
+                           $agentsql = "SELECT agent_name FROM agents_t WHERE agent_id = '$agentid'";
+                           $fetchagent = mysqli_query($con, $agentsql);
+                           $agent = mysqli_fetch_assoc($fetchagent);
+                           echo $agent['agent_name'];
+
+                          
+                          ?></td>
+                          <td><?php echo $row['datef'] ?></td>
+                          <td><?php echo $row['datet'] ?></td>
+                          <td><?php echo $row['timef'] ?></td>
+                          <td><?php echo $row['timet'] ?></td>
+                          <td><?php echo $row['address'] ?></td>
+                         
+
+                        </tr>
+                            <?php
+                        }
+                        ?>
+                               
+                            </table>
                  </div>
           </div>
         <div class="grid-item item5">

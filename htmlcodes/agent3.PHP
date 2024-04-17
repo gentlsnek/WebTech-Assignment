@@ -2,7 +2,7 @@
 session_start();
 
 
-
+if(array_key_exists('userid', $_SESSION)){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include('connections.php');
     
@@ -14,16 +14,21 @@ $address = $_POST["address"];
 $agentid = 4;
 $username = $_SESSION['userid'];
 
-$sql = "INSERT INTO `book_t` (`user_name`, `agent_id`, `datef`, `datet`, `timef`, `timet`, `address`) 
-VALUES ( '$username', '$agentid', '$datef', '$datet', '$timef', '$timet', '$address')";
+       $sql = "INSERT INTO `book_t` (`user_name`, `agent_id`, `datef`, `datet`, `timef`, `timet`, `address`) 
+    VALUES ( '$username', '$agentid', '$datef', '$datet', '$timef', '$timet', '$address')";
 
-$result = mysqli_query($con, $sql);
+    $result = mysqli_query($con, $sql);
 
-if($result){
-    header("location: home.php");
+     if($result){
+              echo "<script> alert('Booking Succesful')</script>";
 }
 }
-
+}
+else{
+   echo "<script> alert('Login First'); 
+        window.open('login.php');
+        </script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +46,23 @@ and schedule and price to take with 2 buttons that will be enquire or request-->
 <body>
     <div class="grid-container">
         <div class="grid-item item1">
-            <a href="home.html"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
+            <a href="home.php"> <img alt="logo" src="images\logonobg2.png" class="logo"></a>
         </div>
         <div class="grid-item item2">
             <div class="menu">
                 <a href="home.php" class="mbuton home">Home</a>
-                <a href="sale.html" class="mbuton agent">Agents</a>
-                <a href="login.php" class="mbuton login">Login</a>
+                <a href="sale.php" class="mbuton agent">Agents</a>
+                <?php
+
+               
+if(!array_key_exists('userid', $_SESSION)){
+echo " <a href='login.php' class='mbuton login'>Login</a>";
+}
+else{
+    $checkuser = $_SESSION['userid'];
+    echo "<a href='user.php' class='mbuton login'> $checkuser </a>";
+}
+?>
             </div>
         </div>
         <div class="grid-item item3">
