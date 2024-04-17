@@ -6,24 +6,26 @@
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include('connections.php');
-    /*
-$datef = $_POST["date1"];
-$datet = $_POST["date2"];
-$timef = $_POST["time1"];
-$timet = $_POST["time2"];
-$address = $_POST["address"];
-$agentid = 1;
-$userid = $_SESSION['userid'];
 
-$sql = "INSERT INTO book_t (user_id,agent_id,datef,datet,timef,timet,address)
- VALUES ('$userid','$agentid,'$datef','$datet','$timet','$timef','$address');";
 
-$result = mysqli_query($con, $sql);
-
-if($result){
-    echo "<script> alert('Booking Succesful')</script>;";
-}*/
-}
+    $datef = $_POST["date1"];
+    $datet = $_POST["date2"];
+    $timef = $_POST["time1"];
+    $timet = $_POST["time2"];
+    $address = $_POST["address"];
+    $agentid = 2;
+    $username = $_SESSION['userid'];
+    
+    $sql = "INSERT INTO `book_t` (`user_name`, `agent_id`, `datef`, `datet`, `timef`, `timet`, `address`) VALUES
+     ( '$username', '$agentid', '$datef', '$datet', '$timef', '$timet', '$address')";
+    
+    $result = mysqli_query($con, $sql);
+    
+    if($result){
+        echo "<script> alert('Booking Succesful')</script>;";
+    }
+    }
+    
 
 ?>
 
