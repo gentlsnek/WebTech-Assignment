@@ -8,6 +8,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Sale</title>
     <link rel="stylesheet" href="csscodes\salestyle.css">
 </head>

@@ -15,7 +15,7 @@ $result = mysqli_query($con, $sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>User-profile</title>
     <link rel="stylesheet" href="csscodes/userstyles.css">
 </head> 

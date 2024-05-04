@@ -49,7 +49,7 @@ else{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>SignUp</title>
     <link rel="stylesheet" href="csscodes\signupstyle.css">
 </head>
